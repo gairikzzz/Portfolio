@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gairik Chakraborty | Portfolio</title>
+  <meta name="description" content="Portfolio website of Gairik Chakraborty — showcasing projects, skills, experience, and achievements.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <!-- Logo / Name -->
+      <a href="#" class="nav__logo">
+        <img src="assets/avatar-128.png" srcset="assets/avatar-128.png 1x, assets/avatar-256.png 2x" alt="Gairik" class="logo-avatar">
+        <span class="nav__logo-text"><span class="nav__logo-first">Gairik</span> <span class="nav__logo-last">Chakraborty</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav__menu" id="nav-menu">
+        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+        <li class="nav__item"><a href="#experience" class="nav__link">Experience</a></li>
+        <li class="nav__item"><a href="#product-thinking" class="nav__link">Product Thinking</a></li>
+        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+        <li class="nav__item"><a href="#achievements" class="nav__link">Achievements</a></li>
+        <li class="nav__item nav__item--mobile-cta"><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="#contact" class="nav__cta"><span>Contact</span><span class="nav__cta-icon">&#8599;</span></a>
+
+      <!-- Mobile Toggle -->
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__inner container">
+      <div class="hero__text">
+        <p class="hero__greeting">Hi, I'm <span style="color: #E8880A;">Gairik</span>.</p>
+        <h1 class="hero__title">I'M A PRODUCT MANAGER.</h1>
+        <p class="hero__typewriter">
+          <span class="typewriter__text" id="typewriter-text"></span>
+          <span class="typewriter__cursor">|</span>
+        </p>
+        <a href="#" class="hero__cta" download><span>Download CV</span><svg class="hero__cta-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="3" x2="12" y2="16"></line>
+            <polyline points="7 11 12 16 17 11"></polyline>
+            <line x1="4" y1="21" x2="20" y2="21"></line>
+          </svg></a>
+      </div>
+    </div>
+    <div class="hero__media" id="hero-media">
+      <video class="hero__video" id="hero-video" autoplay loop muted playsinline>
+        <source src="assets/video-project-14.mp4" type="video/mp4">
+      </video>
+      <div class="hero__video-wash" id="hero-video-wash"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ME SECTION (Antigravity Expanding Card Experience) ===== -->
+  <section class="about-track" id="about">
+    <!-- Black Card that grows in along with contents as you scroll -->
+    <div class="about-card" id="about-card">
+      <div class="about-card__inner" id="about-card-inner">
+        <div class="container">
+        
+        <!-- Section Header -->
+        <div class="about-section-header" id="about-section-header">
+          <span class="about-eyebrow">Beyond the Product</span>
+          <h2 class="about-section-heading" id="about-section-heading">ABOUT ME.</h2>
+        </div>
+
+        <!-- 1. Two-Column Opening (Portrait Frame + Journey Story) -->
+        <div class="about-editorial-intro">
+          <!-- Left Column: Premium Physical Paper Polaroid Mounted on Black Canvas -->
+          <div class="about-portrait-col">
+            <div class="about-polaroid" id="about-portrait-frame" title="Portrait Photograph">
+              <div class="polaroid-aperture">
+                <img src="assets/about-photo.png" alt="Gairik Chakraborty" class="polaroid-photo-img" loading="eager">
+              </div>
+              <div class="polaroid-bottom-margin">
+                <svg class="polaroid-location-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span class="polaroid-caption">Bengaluru, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Headline, Narrative & Education Timeline -->
+          <div class="about-narrative-col">
+            <h3 class="about-headline">
+              Curious by nature. Driven by impact.
+            </h3>
+            <div class="about-story">
+              <p>
+                I love finding the right problems to solve and turning them into products that create real value. That starts with staying close to users, using data to challenge assumptions and bringing business and technology together around the right solution.
+              </p>
+            </div>
+
+            <!-- Education Timeline fitting tightly on right side of photo -->
+            <div class="about-timeline" id="about-timeline">
+              <!-- Timeline vertical spine -->
+              <div class="timeline-spine" id="timeline-spine">
+                <div class="timeline-spine-bg"></div>
+                <div class="timeline-spine-fill" id="timeline-spine-fill"></div>
+              </div>
+
+              <!-- Milestone 1: MBA NMIMS Mumbai -->
+              <div class="timeline-item" data-milestone="1" id="milestone-1">
+                <div class="timeline-marker">
+                  <span class="timeline-node" id="node-1"></span>
+                </div>
+                <div class="timeline-card" id="card-1">
+                  <div class="timeline-card__header">
+                    <span class="timeline-year">2023 - 2025</span>
+                    <span class="timeline-cgpa-pill">CGPA: 3.58 / 4</span>
+                  </div>
+                  <div class="timeline-identity">
+                    <div class="timeline-logo-wrap">
+                      <img src="assets/nmims-logo.jpeg" alt="NMIMS Mumbai Logo" class="timeline-logo-img" />
+                    </div>
+                    <div class="timeline-identity-text">
+                      <h4 class="timeline-degree">MBA, General Management</h4>
+                      <div class="timeline-institution">School of Business Management (SBM), NMIMS Mumbai</div>
+                    </div>
+                  </div>
+                  
+                  <div class="timeline-achievements">
+                    <div class="timeline-achievement">
+                      <svg class="timeline-achieve-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                      </svg>
+                      <span><strong>Dean’s List:</strong> Rank 27/777 (2023–24) • Rank 46/784 (2024–25)</span>
+                    </div>
+                    <div class="timeline-achievement">
+                      <svg class="timeline-achieve-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                      <span><strong>Leadership Roles:</strong> Junior Coordinator • Marketing and Creatives Head (Sports Committee)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Milestone 2: B.Tech PDPU/PDEU -->
+              <div class="timeline-item" data-milestone="2" id="milestone-2">
+                <div class="timeline-marker">
+                  <span class="timeline-node" id="node-2"></span>
+                </div>
+                <div class="timeline-card" id="card-2">
+                  <div class="timeline-card__header">
+                    <span class="timeline-year">2017 - 2021</span>
+                    <span class="timeline-cgpa-pill">CGPA: 9.43 / 10</span>
+                  </div>
+                  <div class="timeline-identity">
+                    <div class="timeline-logo-wrap">
+                      <img src="assets/pdeu-logo.jpeg" alt="PDEU Gandhinagar Logo" class="timeline-logo-img" />
+                    </div>
+                    <div class="timeline-identity-text">
+                      <h4 class="timeline-degree">B.Tech, Petroleum Engineering</h4>
+                      <div class="timeline-institution">Pandit Deendayal Energy University (Formerly PDPU), Gandhinagar</div>
+                    </div>
+                  </div>
+                  
+                  <div class="timeline-achievements">
+                    <div class="timeline-achievement">
+                      <svg class="timeline-achieve-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                      <span><strong>Leadership Roles:</strong> Alumni Coordinator • Training and Placement Officer (T&P Cell)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. HOW I WORK & OFF THE CLOCK (75/25 Horizontal Split) -->
+        <div class="about-sub-section about-split-section" id="about-work-and-interests">
+          <div class="about-split-grid">
+            <!-- Left Column: 75% HOW I WORK -->
+            <div class="split-col split-col--work">
+              <h3 class="about-split-heading">HOW I WORK.</h3>
+              <div class="work-cards-grid">
+                <!-- 1. User Empathy -->
+                <div class="work-card">
+                  <div class="work-card__header">
+                    <div class="work-card__icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                      </svg>
+                    </div>
+                    <h4 class="work-card__title">User Empathy</h4>
+                  </div>
+                  <p class="work-card__desc">Staying close to users to understand what they need, not just what they ask for.</p>
+                </div>
+
+                <!-- 2. Problem Solving -->
+                <div class="work-card">
+                  <div class="work-card__header">
+                    <div class="work-card__icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                      </svg>
+                    </div>
+                    <h4 class="work-card__title">Product Sense</h4>
+                  </div>
+                  <p class="work-card__desc">Breaking ambiguous problems down to find the right problem before jumping to solutions.</p>
+                </div>
+
+                <!-- 3. Collaboration -->
+                <div class="work-card">
+                  <div class="work-card__header">
+                    <div class="work-card__icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                      </svg>
+                    </div>
+                    <h4 class="work-card__title">Collaboration</h4>
+                  </div>
+                  <p class="work-card__desc">Bringing product, design, technical and business together around a shared outcome.</p>
+                </div>
+
+                <!-- 4. Communication -->
+                <div class="work-card">
+                  <div class="work-card__header">
+                    <div class="work-card__icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                    </div>
+                    <h4 class="work-card__title">Communication</h4>
+                  </div>
+                  <p class="work-card__desc">Turning complexity into clear context, decisions and next steps everyone can act on.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: 25% OFF THE CLOCK -->
+            <div class="split-col split-col--leisure">
+              <h3 class="about-split-heading">OFF THE CLOCK.</h3>
+              <div class="leisure-tiles-grid">
+                <!-- 1. Gaming -->
+                <div class="leisure-tile">
+                  <div class="leisure-tile__icon-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="6" y1="12" x2="10" y2="12"></line>
+                      <line x1="8" y1="10" x2="8" y2="14"></line>
+                      <line x1="15" y1="13" x2="15.01" y2="13"></line>
+                      <line x1="18" y1="11" x2="18.01" y2="11"></line>
+                      <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+                    </svg>
+                  </div>
+                  <span class="leisure-tile__title">Gaming</span>
+                </div>
+
+                <!-- 2. Riding -->
+                <div class="leisure-tile">
+                  <div class="leisure-tile__icon-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                      <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                      <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 9l3-3 3 3-2 3.5"></path>
+                    </svg>
+                  </div>
+                  <span class="leisure-tile__title">Riding</span>
+                </div>
+
+                <!-- 3. Travelling -->
+                <div class="leisure-tile">
+                  <div class="leisure-tile__icon-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                    </svg>
+                  </div>
+                  <span class="leisure-tile__title">Travelling</span>
+                </div>
+
+                <!-- 4. Music -->
+                <div class="leisure-tile">
+                  <div class="leisure-tile__icon-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                      <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                    </svg>
+                  </div>
+                  <span class="leisure-tile__title">Music</span>
+                </div>
+
+                <!-- 5. Drawing -->
+                <div class="leisure-tile">
+                  <div class="leisure-tile__icon-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                      <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                      <path d="M2 2l7.586 7.586"></path>
+                      <circle cx="11" cy="11" r="2"></circle>
+                    </svg>
+                  </div>
+                  <span class="leisure-tile__title">Drawing</span>
+                </div>
+
+                <!-- 6. Sports -->
+                <div class="leisure-tile">
+                  <div class="leisure-tile__icon-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </div>
+                  <span class="leisure-tile__title">Sports</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== EXPERIENCE SECTION ===== -->
+  <section class="experience-section" id="experience">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="experience-section-header">
+        <span class="experience-eyebrow">From Ideas to Impact</span>
+        <h2 class="experience-heading">EXPERIENCE.</h2>
+      </div>
+
+      <!-- Experience Timeline Container (matching About Me Education) -->
+      <div class="experience-timeline" id="experience-timeline">
+        <!-- Vertical spine connecting milestone nodes -->
+        <div class="exp-timeline-spine" id="exp-timeline-spine">
+          <div class="exp-timeline-spine-bg"></div>
+          <div class="exp-timeline-spine-fill" id="exp-timeline-spine-fill"></div>
+        </div>
+
+        <!-- Milestone 1: Product Management -->
+        <div class="exp-timeline-item" data-exp-milestone="1" id="exp-milestone-1">
+          <div class="exp-timeline-marker">
+            <span class="exp-timeline-node exp-timeline-node--active" id="exp-node-1"></span>
+          </div>
+          <article class="exp-card exp-card--active" id="exp-card-1">
+            <div class="exp-card__header">
+              <span class="exp-card__period">Aug 2024 – Present</span>
+              <span class="exp-card__badge-pill">Core Focus</span>
+            </div>
+            <h3 class="exp-card__title">Product Manager</h3>
+            <div class="exp-card__company">0-to-1 Product Strategy & Growth • Bengaluru, India</div>
+            <p class="exp-card__desc">
+              Driving product lifecycle from discovery through execution—transforming ambiguous user friction into focused, scalable features through data synthesis, agile iteration, and deep cross-functional collaboration.
+            </p>
+            <div class="exp-card__achievements">
+              <div class="exp-card__achievement">
+                <span class="bullet-dot"></span>
+                <span><strong>Discovery & Strategy:</strong> Conducted 40+ user interviews to define PRDs, prioritize feature backlogs, and architect user-centric roadmaps.</span>
+              </div>
+              <div class="exp-card__achievement">
+                <span class="bullet-dot"></span>
+                <span><strong>Cross-Functional Execution:</strong> Partnered closely with engineering, UX design, and business stakeholders to ship MVP milestones.</span>
+              </div>
+              <div class="exp-card__achievement">
+                <span class="bullet-dot"></span>
+                <span><strong>Metrics & Iteration:</strong> Established tracking frameworks (North Star, funnels, activation rates) to run A/B experiments and optimize user retention post-launch.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Milestone 2: Summer Intern - Retail Credit Strategy and Control -->
+        <div class="exp-timeline-item" data-exp-milestone="2" id="exp-milestone-2">
+          <div class="exp-timeline-marker">
+            <span class="exp-timeline-node" id="exp-node-2"></span>
+          </div>
+          <article class="exp-card" id="exp-card-2">
+            <div class="exp-card__header">
+              <span class="exp-card__period">May 2024 – Jul 2024</span>
+              <span class="exp-card__badge-pill">Internship</span>
+            </div>
+            <div class="exp-card__identity">
+              <div class="exp-card__logo-wrap">
+                <img src="assets/hdfc-logo.jpg" alt="HDFC Bank Logo" class="exp-card__logo-img" />
+              </div>
+              <div class="exp-card__identity-text">
+                <h3 class="exp-card__title">Summer Intern - Retail Credit Strategy and Control</h3>
+                <div class="exp-card__company">HDFC Bank Limited, Mumbai</div>
+              </div>
+            </div>
+            <p class="exp-card__desc">
+              Analyzed digital underwriting, risk management and banking processes across the Retail Assets portfolio, covering RBI compliance, credit bureau frameworks, Basel III, CRAR and Altman’s Z-score. Extended the analysis to the digital lending ecosystem by benchmarking leading NBFCs and mapping customer journeys to identify best practices and opportunities to improve the lending experience.
+            </p>
+            <div class="exp-card__metrics-grid">
+              <!-- Left: 82.04% ML model accuracy -->
+              <div class="exp-metric-col">
+                <div class="exp-metric-val" id="exp-metric-acc" data-target="82.04">0.00%</div>
+                <div class="exp-metric-desc">ML model accuracy in flagging SMA accounts</div>
+              </div>
+
+              <!-- Vertical Divider -->
+              <div class="exp-metric-divider" aria-hidden="true"></div>
+
+              <!-- Right: ₹28M Retail loan portfolio -->
+              <div class="exp-metric-col">
+                <div class="exp-metric-val" id="exp-metric-port" data-target="28">₹0M</div>
+                <div class="exp-metric-desc">Retail loan portfolio analyzed</div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Milestone 3: Training & Placement Officer (Leadership) -->
+        <div class="exp-timeline-item" data-exp-milestone="3" id="exp-milestone-3">
+          <div class="exp-timeline-marker">
+            <span class="exp-timeline-node" id="exp-node-3"></span>
+          </div>
+          <article class="exp-card" id="exp-card-3">
+            <div class="exp-card__header">
+              <span class="exp-card__period">Nov 2021 – Apr 2023</span>
+              <span class="exp-card__badge-pill">Full-time</span>
+            </div>
+            <div class="exp-card__identity">
+              <div class="exp-card__logo-wrap">
+                <img src="assets/cognizant-full-logo.png" alt="Cognizant Technology Solutions" class="exp-card__logo-img exp-card__logo-img--full" />
+              </div>
+              <div class="exp-card__identity-text">
+                <h3 class="exp-card__title">Programmer Analyst - CDB Artificial Intelligence & Analytics</h3>
+                <div class="exp-card__company">Cognizant Technology Solutions, Bengaluru</div>
+              </div>
+            </div>
+            <p class="exp-card__desc">
+              Delivered a large-scale data modernization program for US Bank, migrating enterprise ETL workflows from Informatica to Apache Spark. Built scalable data pipelines, optimized processing performance and job execution and collaborated across teams to drive the transformation while enabling a smooth transition to a scalable, distributed big data ecosystem.
+            </p>
+            <div class="exp-card__metrics-group">
+              <!-- Row 1: 320+ and 10× -->
+              <div class="exp-card__metrics-grid">
+                <div class="exp-metric-col">
+                  <div class="exp-metric-val" id="exp-metric-c3-1" data-target="320">0+</div>
+                  <div class="exp-metric-desc">Data pipelines migrated from Informatica to Spark</div>
+                </div>
+                <div class="exp-metric-divider" aria-hidden="true"></div>
+                <div class="exp-metric-col">
+                  <div class="exp-metric-val" id="exp-metric-c3-2" data-target="10">0×</div>
+                  <div class="exp-metric-desc">Faster data processing and performance</div>
+                </div>
+              </div>
+
+              <!-- Row 2: ₹4 Cr+ and 200+ -->
+              <div class="exp-card__metrics-grid exp-card__metrics-grid--row2">
+                <div class="exp-metric-col">
+                  <div class="exp-metric-val" id="exp-metric-c3-3" data-target="4">₹0 Cr+</div>
+                  <div class="exp-metric-desc">Project delivered within a 32-week timeline</div>
+                </div>
+                <div class="exp-metric-divider" aria-hidden="true"></div>
+                <div class="exp-metric-col">
+                  <div class="exp-metric-val" id="exp-metric-c3-4" data-target="200">0+</div>
+                  <div class="exp-metric-desc">Autosys jobs reviewed for efficient execution</div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLOATING CHATBOT ("Gairik") ===== -->
+  <div class="chatbot-container" id="chatbot-container">
+    <!-- Floating Launcher Trigger (visible when chat is closed) -->
+    <button class="chatbot-launcher" id="chatbot-launcher" aria-label="Ask Gairik" title="Ask Gairik">
+      <div class="chatbot-launcher__avatar-wrap">
+        <img src="assets/avatar-128.png" srcset="assets/avatar-128.png 1x, assets/avatar-256.png 2x" alt="Gairik" class="chatbot-launcher__avatar">
+      </div>
+      <span class="chatbot-launcher__label">Ask Gairik</span>
+    </button>
+
+    <!-- Chat Panel Window -->
+    <div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-label="Chat with Gairik" aria-hidden="true">
+      <!-- Header -->
+      <div class="chatbot-header">
+        <div class="chatbot-header__info">
+          <div class="chatbot-header__avatar-wrap">
+            <img src="assets/avatar-128.png" srcset="assets/avatar-128.png 1x, assets/avatar-256.png 2x" alt="Gairik" class="chatbot-header__avatar">
+          </div>
+          <div class="chatbot-header__text">
+            <div class="chatbot-header__title">Gairik</div>
+            <div class="chatbot-header__status">
+              <span class="status-indicator"></span>
+              <span>Online</span>
+            </div>
+          </div>
+        </div>
+        <div class="chatbot-header__actions">
+          <button class="chatbot-btn-minimize" id="chatbot-close-btn" aria-label="Minimize chat">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages Body -->
+      <div class="chatbot-messages" id="chatbot-messages">
+        <!-- Initial Welcome Message from Gairik -->
+        <div class="chat-msg chat-msg--bot">
+          <div class="chat-msg__bubble">
+            Hey, thanks for visiting! Hope you're doing good 👋
+          </div>
+          <span class="chat-msg__time" id="welcome-time">Just now</span>
+        </div>
+
+        <!-- Quick suggestion chips -->
+        <div class="chat-chips" id="chat-chips">
+          <button type="button" class="chat-chip" data-query="What do you do?">What do you do?</button>
+          <button type="button" class="chat-chip" data-query="Tell me about your experience">Your experience</button>
+          <button type="button" class="chat-chip" data-query="How can I contact you?">Get in touch</button>
+          <button type="button" class="chat-chip" data-query="Can I see your resume?">Download CV</button>
+        </div>
+
+        <!-- Typing Indicator (hidden by default) -->
+        <div class="chat-typing" id="chat-typing">
+          <div class="chat-typing__dot"></div>
+          <div class="chat-typing__dot"></div>
+          <div class="chat-typing__dot"></div>
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <form class="chatbot-form" id="chatbot-form" autocomplete="off">
+        <input 
+          type="text" 
+          id="chatbot-input" 
+          class="chatbot-input" 
+          placeholder="What would you like to know?" 
+          autocomplete="off"
+          aria-label="What would you like to know?" 
+          required
+        />
+        <button type="submit" class="chatbot-send-btn" id="chatbot-send-btn" aria-label="Send message">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
