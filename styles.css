@@ -2496,18 +2496,18 @@ ul {
 }
 
 .exp-card__article-btn-icon {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   flex-shrink: 0;
   display: inline-block;
   vertical-align: middle;
   stroke: #0e0e0e;
-  stroke-width: 2.4;
+  stroke-width: 2.2;
   transition: transform 0.2s ease;
 }
 
 .exp-card__article-btn:hover .exp-card__article-btn-icon {
-  transform: translate(1px, -1px);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 640px) {

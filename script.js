@@ -372,6 +372,8 @@ const expMetricC4_1 = document.getElementById('exp-metric-c4-1');
 const expMetricC4_2 = document.getElementById('exp-metric-c4-2');
 const expMetricC4_3 = document.getElementById('exp-metric-c4-3');
 const expMetricC4_4 = document.getElementById('exp-metric-c4-4');
+const expMetricC6_1 = document.getElementById('exp-metric-c6-1');
+const expMetricC6_2 = document.getElementById('exp-metric-c6-2');
 
 // Achievements 3-Step Timeline elements
 const achieveTimeline = document.getElementById('achieve-steps-timeline');
@@ -760,6 +762,44 @@ if (aboutTrack && aboutCard) {
     requestAnimationFrame(step);
   };
 
+  // Fast count-up animation for Card 6 (WE CARE @ Abhoy Mission) impact metrics (4 and 48), settling smoothly
+  let card6MetricHasAnimated = false;
+  const animateCard6MetricCounter = () => {
+    if (card6MetricHasAnimated) return;
+    card6MetricHasAnimated = true;
+
+    const targetPanchayats = 4;
+    const targetHours = 48;
+    const duration = 1200;
+    let startTime = null;
+
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const t = Math.min(1, elapsed / duration);
+      const ease = easeOutCubic(t);
+
+      if (t < 1) {
+        if (expMetricC6_1) {
+          const curPanchayats = Math.round(ease * targetPanchayats);
+          expMetricC6_1.textContent = `${curPanchayats}`;
+        }
+        if (expMetricC6_2) {
+          const curHours = Math.round(ease * targetHours);
+          expMetricC6_2.textContent = `${curHours}`;
+        }
+        requestAnimationFrame(step);
+      } else {
+        if (expMetricC6_1) expMetricC6_1.textContent = `${targetPanchayats}`;
+        if (expMetricC6_2) expMetricC6_2.textContent = `${targetHours}`;
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
   // Center experience timeline spine between the center of node 1 and center of the last node (node 6)
   const updateExpTimelineSpinePosition = () => {
     if (!expTimeline || !expTimelineSpine || !expNode1) return;
@@ -895,6 +935,7 @@ if (aboutTrack && aboutCard) {
       if (node6Touched) {
         expNode6.classList.add('exp-timeline-node--active');
         expCard6.classList.add('exp-card--active');
+        animateCard6MetricCounter();
       } else {
         expNode6.classList.remove('exp-timeline-node--active');
         expCard6.classList.remove('exp-card--active');
