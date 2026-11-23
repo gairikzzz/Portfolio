@@ -368,6 +368,8 @@ const expMetricC2_1 = document.getElementById('exp-metric-c2-1');
 const expMetricC2_2 = document.getElementById('exp-metric-c2-2');
 const expMetricC2_3 = document.getElementById('exp-metric-c2-3');
 const expMetricC2_4 = document.getElementById('exp-metric-c2-4');
+const expMetricC2_5 = document.getElementById('exp-metric-c2-5');
+const expMetricC2_6 = document.getElementById('exp-metric-c2-6');
 const expMetricAcc = document.getElementById('exp-metric-acc');
 const expMetricPort = document.getElementById('exp-metric-port');
 const expMetricC4_1 = document.getElementById('exp-metric-c4-1');
@@ -664,20 +666,28 @@ if (aboutTrack && aboutCard) {
         }
         if (expMetricC2_3) {
           const curDel = Math.round(ease * targetDelivery);
-          const curEng = Math.round(ease * targetEngagement);
-          expMetricC2_3.textContent = `${curDel}% / ${curEng}%`;
+          expMetricC2_3.textContent = `${curDel}%`;
         }
         if (expMetricC2_4) {
+          const curEng = Math.round(ease * targetEngagement);
+          expMetricC2_4.textContent = `${curEng}%`;
+        }
+        if (expMetricC2_5) {
           const curTot = Math.round(ease * targetTotalVol);
+          expMetricC2_5.textContent = `${curTot}%`;
+        }
+        if (expMetricC2_6) {
           const curStar = (ease * targetStarVol).toFixed(1);
-          expMetricC2_4.textContent = `${curTot}% / ${curStar}%`;
+          expMetricC2_6.textContent = `${curStar}%`;
         }
         requestAnimationFrame(step);
       } else {
         if (expMetricC2_1) expMetricC2_1.textContent = '₹3-6 Cr';
         if (expMetricC2_2) expMetricC2_2.textContent = '4,567';
-        if (expMetricC2_3) expMetricC2_3.textContent = '13% / 7%';
-        if (expMetricC2_4) expMetricC2_4.textContent = '176% / 16.9%';
+        if (expMetricC2_3) expMetricC2_3.textContent = '13%';
+        if (expMetricC2_4) expMetricC2_4.textContent = '7%';
+        if (expMetricC2_5) expMetricC2_5.textContent = '176%';
+        if (expMetricC2_6) expMetricC2_6.textContent = '16.9%';
       }
     };
 
