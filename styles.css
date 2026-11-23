@@ -1279,9 +1279,6 @@ ul {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.55rem;
   }
-  .leisure-tile:last-child {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
