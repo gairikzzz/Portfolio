@@ -463,7 +463,8 @@ if (aboutTrack && aboutCard) {
     const isCardUnderHeader = (card) => {
       if (!card) return false;
       const rect = card.getBoundingClientRect();
-      return rect.top <= 72 && rect.bottom > 72;
+      const headerH = header.offsetHeight || 72;
+      return rect.top <= headerH && rect.bottom > headerH;
     };
 
     if (isCardUnderHeader(aboutCard) || isCardUnderHeader(ptCard) || isCardUnderHeader(achievementsSection)) {

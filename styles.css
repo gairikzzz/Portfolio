@@ -1458,13 +1458,23 @@ ul {
     margin-top: 2.25rem;
   }
 
+  .nav {
+    height: 54px;
+  }
+
+  .hero {
+    padding-top: 54px;
+    min-height: calc(100svh - 54px);
+  }
+
   .nav__logo {
-    font-size: 0.95rem;
+    font-size: 14px;
+    gap: 8px;
   }
 
   .logo-avatar {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 34px;
+    height: 34px;
   }
 
   .nav__toggle {
@@ -1548,13 +1558,14 @@ ul {
 
 @media (max-width: 480px) {
   .nav__logo {
-    font-size: 0.85rem;
+    font-size: 13.5px;
     letter-spacing: 0.3px;
+    gap: 7px;
   }
 
   .logo-avatar {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 32px;
+    height: 32px;
   }
 }
 
