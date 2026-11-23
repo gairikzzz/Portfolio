@@ -1410,6 +1410,49 @@ ul {
   .hero {
     padding-top: 64px;
     padding-bottom: 0;
+    min-height: calc(100svh - 64px);
+    display: flex;
+    align-items: center;
+  }
+
+  .hero__inner {
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .hero__text {
+    max-width: 100%;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .hero__greeting {
+    font-size: clamp(1.4rem, 5.5vw, 1.95rem);
+    margin-bottom: 0.25rem;
+  }
+
+  .hero__title {
+    font-size: clamp(1.75rem, 7.6vw, 2.75rem);
+    white-space: normal;
+    word-break: break-word;
+    letter-spacing: -1.2px;
+    line-height: 1.1;
+    max-width: 100%;
+  }
+
+  .hero__typewriter {
+    margin-top: 1.15rem;
+    min-height: 3.2rem;
+    font-size: clamp(0.95rem, 4vw, 1.25rem);
+    line-height: 1.35;
+  }
+
+  .hero__cta {
+    margin-top: 2.25rem;
   }
 
   .nav__logo {
@@ -1475,8 +1518,12 @@ ul {
 
   .hero__media {
     max-width: 100%;
-    height: 70%;
-    opacity: 0.35;
+    width: 85%;
+    height: 60%;
+    opacity: 0.32;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
   }
 
   /* Overlay */
@@ -2528,7 +2575,10 @@ ul {
 
 @media (max-width: 768px) {
   .experience-section {
-    padding: 0 0 3.5rem 0;
+    padding: 2.2rem 0 3.5rem 0;
+  }
+  .experience-section-header {
+    margin-bottom: 2.2rem;
   }
   .experience-timeline {
     padding-left: 28px;
@@ -3582,112 +3632,128 @@ ul {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.9rem;
   }
-  .pt-cases-list {
-    margin-top: 1.2rem;
-    padding-bottom: 8px;
+  .pt-cases-list,
+  .pt-teardowns-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    margin-top: 1.5rem;
+    padding-bottom: 0;
   }
   .pt-teardowns-section {
-    margin-top: 2.8rem;
+    margin-top: 3.5rem;
   }
-  .pt-teardowns-list {
-    margin-top: 1.2rem;
-    padding-bottom: 8px;
-  }
-  .pt-case-card {
-    padding: 1.35rem 1.35rem;
+  .pt-case-card,
+  .pt-case-card:nth-child(n) {
+    position: relative !important;
+    top: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    z-index: 1 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    padding: 1.35rem 1.25rem;
     border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
   }
-  .pt-case-card:nth-child(1) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 1;
+  .pt-case-media-box {
+    min-height: 180px;
+    max-height: 240px;
+    padding: 0.85rem 0.65rem;
   }
-  .pt-case-card:nth-child(2) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 2;
-    margin-top: 1.5rem;
+  .pt-case-media-img {
+    max-height: 190px;
+    width: auto;
+    object-fit: contain;
   }
-  .pt-case-card:nth-child(3) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 3;
-    margin-top: 1.5rem;
+  .pt-case-title {
+    font-size: 1.25rem;
+    line-height: 1.28;
+    margin-bottom: 0.45rem;
   }
-  .pt-case-card:nth-child(4) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 4;
-    margin-top: 1.5rem;
-  }
-  .pt-case-card:nth-child(5) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 5;
-    margin-top: 1.5rem;
-  }
-  .pt-case-card:nth-child(6) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 6;
-    margin-top: 1.5rem;
-  }
-  .pt-case-card:nth-child(7) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 7;
-    margin-top: 1.5rem;
-  }
-  .pt-case-card:nth-child(8) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 8;
-    margin-top: 1.5rem;
-  }
-  .pt-case-card:nth-child(9) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 9;
-    margin-top: 1.5rem;
-  }
-  .pt-case-card:nth-child(10),
-  .pt-case-card:nth-child(n+10) {
-    top: clamp(70px, 9vh, 84px);
-    z-index: 10;
-    margin-top: 1.5rem;
+  .pt-case-tagline {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
   }
   .pt-case-comparison {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 14px;
+    margin-bottom: 1.25rem;
+  }
+  .pt-comparison-col {
+    padding: 1.1rem 1rem;
+  }
+  .pt-comparison-text {
+    font-size: 0.82rem;
+    line-height: 1.5;
   }
   .pt-case-metrics {
     flex-direction: column;
-    gap: 0.9rem;
-  }
-  .pt-case-kpi-group {
-    flex: 0 0 100%;
-    max-width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.9rem;
-    width: 100%;
-  }
-  .pt-case-kpi-group .pt-metric-divider {
-    display: none;
-  }
-  .pt-metric-divider {
-    display: none;
-  }
-  .pt-metric-num {
-    font-size: 1.55rem;
+    gap: 1.15rem;
+    padding-top: 1rem;
+    margin-bottom: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
   .pt-case-metrics--with-ctas {
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+    gap: 1.15rem;
+  }
+  .pt-case-kpi-group {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .pt-case-kpi-group .pt-metric-divider,
+  .pt-metric-divider {
+    display: block;
+    margin: 0 8px;
+  }
+  .pt-metric-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .pt-metric-num {
+    font-size: 1.45rem;
+  }
+  .pt-metric-label {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    text-align: center;
   }
   .pt-case-ctas {
     margin-left: 0;
     width: 100%;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
     gap: 0.65rem;
     padding-top: 0.25rem;
   }
   .pt-case-ctas .pt-cta-btn {
-    flex: 1 1 auto;
+    width: 100%;
     text-align: center;
     justify-content: center;
+    padding: 0.65rem 1rem;
+    font-size: 0.78rem;
+  }
+  .pt-case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.38rem;
+  }
+  .pt-tag {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.65rem;
   }
 }
 
@@ -5378,7 +5444,7 @@ ul {
 
 @media (max-width: 600px) {
   .footer {
-    padding: clamp(2.75rem, 8vw, 3.75rem) 0 1rem 0;
+    padding: clamp(2.75rem, 8vw, 3.75rem) 0 4.5rem 0;
   }
   .footer__grid {
     margin-bottom: clamp(1.75rem, 5vw, 2.5rem);

@@ -1439,9 +1439,11 @@ function initCaseStudiesStack() {
   if (!allCards.length) return;
 
   const updateCardStackVisibility = () => {
-    const isMobile = window.innerWidth <= 960;
-
-    stackGroups.forEach(caseCards => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      allCards.forEach(card => card.classList.remove('is-covered'));
+      return;
+    }
       caseCards.forEach((card, index) => {
         const nextCard = caseCards[index + 1];
         if (!nextCard) {
