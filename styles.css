@@ -4024,15 +4024,46 @@ ul {
     max-width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: 0;
     width: 100%;
+  }
+  .pt-case-kpi-group .pt-metric-item {
+    flex: 1 1 0;
+    width: auto;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 0.25rem;
+    box-sizing: border-box;
+  }
+  .pt-case-kpi-group .pt-metric-num {
+    font-size: 1.45rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .pt-case-kpi-group .pt-metric-label {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
   }
   .pt-case-kpi-group .pt-metric-divider,
   .pt-metric-divider {
+    flex: 0 0 1px;
+    width: 1px;
+    height: 38px;
+    margin: 0;
+    align-self: center;
     display: block;
-    margin: 0 8px;
   }
   .pt-metric-item {
     flex: 1;
