@@ -1503,6 +1503,12 @@ function initCaseStudiesStack() {
   if (!allCards.length) return;
 
   const updateCardStackVisibility = () => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      allCards.forEach(card => card.classList.remove('is-covered'));
+      return;
+    }
+
     stackGroups.forEach(caseCards => {
       caseCards.forEach((card, index) => {
         const nextCard = caseCards[index + 1];
@@ -1512,7 +1518,7 @@ function initCaseStudiesStack() {
         }
 
         const nextRect = nextCard.getBoundingClientRect();
-        const stickyTop = parseFloat(window.getComputedStyle(nextCard).top) || 70;
+        const stickyTop = parseFloat(window.getComputedStyle(nextCard).top) || 90;
 
         // Once the next card reaches sticky top (or within 8px), the previous card is completely covered
         if (nextRect.top <= stickyTop + 8) {
