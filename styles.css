@@ -1223,15 +1223,20 @@ ul {
 
 @media (max-width: 768px) {
   .about-track {
-    margin-top: -1px;
+    margin-top: 0;
     padding-top: 0;
+    background: #000000;
   }
   .about-card {
-    width: 100%;
-    clip-path: none;
+    width: 100% !important;
+    transform: none !important;
+    clip-path: none !important;
+    border-radius: 0 !important;
     padding: 3.5rem 0 3.5rem;
-    border-radius: 20px;
-    transform: translate3d(0, 70px, 0);
+  }
+  .about-card__inner {
+    opacity: 1 !important;
+    transform: none !important;
   }
   .about-editorial-intro {
     grid-template-columns: 1fr;
@@ -1431,26 +1436,41 @@ ul {
   }
 
   .hero {
-    padding-top: 64px;
+    padding-top: 54px;
     padding-bottom: 0;
-    min-height: calc(100svh - 64px);
-    display: flex;
-    align-items: center;
+    min-height: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    position: relative;
+    overflow: hidden;
   }
 
   .hero__inner {
-    padding-top: 2rem;
-    padding-bottom: 3.5rem;
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 2;
+    padding-top: 0;
+    padding-bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
   }
 
   .hero__text {
-    max-width: 100%;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
-    z-index: 3;
+    max-width: 100%;
+    margin: 0;
   }
 
   .hero__greeting {
@@ -1476,15 +1496,6 @@ ul {
 
   .hero__cta {
     margin-top: 2.25rem;
-  }
-
-  .nav {
-    height: 54px;
-  }
-
-  .hero {
-    padding-top: 54px;
-    min-height: calc(100svh - 54px);
   }
 
   .nav__logo {
@@ -1559,13 +1570,30 @@ ul {
   }
 
   .hero__media {
+    grid-area: 1 / 1;
+    position: relative;
+    width: 100%;
     max-width: 100%;
-    width: 85%;
-    height: 60%;
-    opacity: 0.32;
-    right: 0;
-    bottom: 0;
+    height: auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    opacity: 0.38;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero__video {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    object-position: right center;
+    display: block;
   }
 
   /* Overlay */

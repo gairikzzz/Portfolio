@@ -576,7 +576,21 @@ if (aboutTrack && aboutCard) {
   };
 
   const updateAboutCardExpansion = () => {
-    updateCardExpansion(aboutTrack, aboutCard, aboutCardInner);
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) {
+      updateCardExpansion(aboutTrack, aboutCard, aboutCardInner);
+    } else {
+      if (aboutCard) {
+        aboutCard.style.transform = 'none';
+        aboutCard.style.clipPath = 'none';
+        aboutCard.style.borderRadius = '0px';
+        aboutCard.style.width = '100%';
+      }
+      if (aboutCardInner) {
+        aboutCardInner.style.opacity = '1';
+        aboutCardInner.style.transform = 'none';
+      }
+    }
     updateCardExpansion(ptTrack, ptCard, ptCardInner);
   };
 
