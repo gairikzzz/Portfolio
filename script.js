@@ -362,6 +362,8 @@ const expMetricC1_1 = document.getElementById('exp-metric-c1-1');
 const expMetricC1_2 = document.getElementById('exp-metric-c1-2');
 const expMetricC1_3 = document.getElementById('exp-metric-c1-3');
 const expMetricC1_4 = document.getElementById('exp-metric-c1-4');
+const expMetricC1_5 = document.getElementById('exp-metric-c1-5');
+const expMetricC1_6 = document.getElementById('exp-metric-c1-6');
 const expMetricC2_1 = document.getElementById('exp-metric-c2-1');
 const expMetricC2_2 = document.getElementById('exp-metric-c2-2');
 const expMetricC2_3 = document.getElementById('exp-metric-c2-3');
@@ -566,7 +568,7 @@ if (aboutTrack && aboutCard) {
     }
   };
 
-  // Fast count-up animation for Card 1 impact metrics (642+, $34.1K / 48x, 83.3%, 7,650 / $0.65M), settling smoothly
+  // Fast count-up animation for Card 1 impact metrics (642+, $34.1K, 48x, 83.3%, 7,650, $0.65M), settling smoothly
   let card1MetricHasAnimated = false;
   const animateCard1MetricCounter = () => {
     if (card1MetricHasAnimated) return;
@@ -596,24 +598,32 @@ if (aboutTrack && aboutCard) {
         }
         if (expMetricC1_2) {
           const curAvoidance = (ease * targetAvoidance).toFixed(1);
-          const curRoi = Math.round(ease * targetRoi);
-          expMetricC1_2.textContent = `$${curAvoidance}K / ${curRoi}x`;
+          expMetricC1_2.textContent = `$${curAvoidance}K`;
         }
         if (expMetricC1_3) {
-          const curEffort = (ease * targetEffort).toFixed(1);
-          expMetricC1_3.textContent = `${curEffort}%`;
+          const curRoi = Math.round(ease * targetRoi);
+          expMetricC1_3.textContent = `${curRoi}x`;
         }
         if (expMetricC1_4) {
+          const curEffort = (ease * targetEffort).toFixed(1);
+          expMetricC1_4.textContent = `${curEffort}%`;
+        }
+        if (expMetricC1_5) {
           const curHours = Math.round(ease * targetSprintHours).toLocaleString();
+          expMetricC1_5.textContent = `${curHours}`;
+        }
+        if (expMetricC1_6) {
           const curSavings = (ease * targetSprintSavings).toFixed(2);
-          expMetricC1_4.textContent = `${curHours} / $${curSavings}M`;
+          expMetricC1_6.textContent = `$${curSavings}M`;
         }
         requestAnimationFrame(step);
       } else {
         if (expMetricC1_1) expMetricC1_1.textContent = `${targetHours}+`;
-        if (expMetricC1_2) expMetricC1_2.textContent = `$${targetAvoidance}K / ${targetRoi}x`;
-        if (expMetricC1_3) expMetricC1_3.textContent = `${targetEffort}%`;
-        if (expMetricC1_4) expMetricC1_4.textContent = `${targetSprintHours.toLocaleString()} / $${targetSprintSavings}M`;
+        if (expMetricC1_2) expMetricC1_2.textContent = `$${targetAvoidance}K`;
+        if (expMetricC1_3) expMetricC1_3.textContent = `${targetRoi}x`;
+        if (expMetricC1_4) expMetricC1_4.textContent = `${targetEffort}%`;
+        if (expMetricC1_5) expMetricC1_5.textContent = `${targetSprintHours.toLocaleString()}`;
+        if (expMetricC1_6) expMetricC1_6.textContent = `$${targetSprintSavings}M`;
       }
     };
 
