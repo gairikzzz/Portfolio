@@ -5485,16 +5485,16 @@ body.chatbot-body-locked {
 
 @media (max-width: 600px) {
   .footer__character-wrap {
-    height: clamp(312px, 80vw, 322px);
+    height: clamp(360px, 98vw, 395px);
     opacity: 1;
-    right: -14px;
+    right: -10px;
     bottom: 0;
   }
 }
 
 @media (max-width: 480px) {
   .footer__character-wrap {
-    height: clamp(312px, 80vw, 320px);
+    height: clamp(360px, 98vw, 395px);
   }
 }
 
@@ -5800,6 +5800,10 @@ body.chatbot-body-locked {
   margin: 0;
 }
 
+.footer__copyright-rights {
+  display: inline;
+}
+
 /* Responsive Footer */
 @media (max-width: 900px) {
   .footer__grid {
@@ -5841,14 +5845,19 @@ body.chatbot-body-locked {
     z-index: 3;
   }
   .footer__bottom-bar::before {
-    right: 170px;
+    right: auto;
+    width: 165px;
   }
   .footer__copyright {
     max-width: none;
-    font-size: clamp(0.62rem, 1.9vw, 0.68rem);
-    white-space: nowrap;
-    line-height: 1.3;
+    font-size: 0.74rem;
+    white-space: normal;
+    line-height: 1.45;
     color: #777777;
+  }
+  .footer__copyright-rights {
+    display: block;
+    margin-top: 0.15rem;
   }
 }
 
@@ -5857,9 +5866,10 @@ body.chatbot-body-locked {
     margin-bottom: 4rem;
   }
   .footer__bottom-bar::before {
-    right: 165px;
+    right: auto;
+    width: 165px;
   }
   .footer__copyright {
-    font-size: clamp(0.62rem, 1.9vw, 0.67rem);
+    font-size: 0.74rem;
   }
 }
