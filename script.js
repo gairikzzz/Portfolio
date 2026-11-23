@@ -175,12 +175,16 @@ if (chatbotContainer && chatbotLauncher && chatbotCloseBtn && chatbotForm && cha
   // Re-open via floating launcher button
   chatbotLauncher.addEventListener('click', () => {
     chatbotContainer.classList.add('is-open');
-    setTimeout(() => chatbotInput.focus(), 350);
+    if (window.innerWidth > 768 && !('ontouchstart' in window)) {
+      setTimeout(() => chatbotInput.focus(), 350);
+    }
   });
 
   // Close / Minimize via header close button
   chatbotCloseBtn.addEventListener('click', () => {
     chatbotContainer.classList.remove('is-open');
+    chatbotInput.blur();
+    document.documentElement.style.removeProperty('--chatbot-keyboard-offset');
   });
 
   // Scroll to bottom helper
@@ -313,6 +317,38 @@ if (chatbotContainer && chatbotLauncher && chatbotCloseBtn && chatbotForm && cha
     if (chip && chip.dataset.query) {
       handleSendMessage(chip.dataset.query);
     }
+  });
+
+  // Virtual viewport keyboard push handler for mobile
+  const updateChatbotViewportOffset = () => {
+    if (window.innerWidth > 768) {
+      document.documentElement.style.removeProperty('--chatbot-keyboard-offset');
+      return;
+    }
+
+    if (window.visualViewport) {
+      const vv = window.visualViewport;
+      // Calculate how much space is hidden by the virtual keyboard / browser bars
+      const keyboardOffset = Math.max(0, window.innerHeight - (vv.height + (vv.offsetTop || 0)));
+      document.documentElement.style.setProperty('--chatbot-keyboard-offset', `${Math.round(keyboardOffset)}px`);
+    }
+  };
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', updateChatbotViewportOffset);
+    window.visualViewport.addEventListener('scroll', updateChatbotViewportOffset);
+  }
+
+  chatbotInput.addEventListener('focus', () => {
+    updateChatbotViewportOffset();
+    setTimeout(updateChatbotViewportOffset, 100);
+    setTimeout(updateChatbotViewportOffset, 250);
+    setTimeout(scrollToBottom, 300);
+  });
+
+  chatbotInput.addEventListener('blur', () => {
+    setTimeout(updateChatbotViewportOffset, 100);
+    setTimeout(updateChatbotViewportOffset, 250);
   });
 }
 

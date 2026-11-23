@@ -2090,24 +2090,67 @@ ul {
 }
 
 /* Responsive for Mobile */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .chatbot-container {
-    bottom: 1rem;
+    bottom: calc(1rem + var(--chatbot-keyboard-offset, 0px));
     right: 1rem;
-    left: 1rem;
+    left: auto;
     display: flex;
     justify-content: flex-end;
+    transition: bottom 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .chatbot-panel {
-    position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-    width: auto;
-    height: auto;
-    max-height: 75vh;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    width: 300px;
+    max-width: calc(100vw - 2rem);
+    height: 425px;
+    max-height: min(425px, calc(100dvh - var(--chatbot-keyboard-offset, 0px) - 5rem));
     border-radius: 12px;
+  }
+
+  /* Maintain desktop legibility & shape inside chatbot on mobile */
+  .chatbot-header__title {
+    font-size: 14.5px;
+  }
+
+  .chatbot-header__status {
+    font-size: 11px;
+  }
+
+  .chat-msg__bubble {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .chat-msg__time {
+    font-size: 10px;
+  }
+
+  .chat-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+
+  .chat-chip {
+    font-size: 11px;
+    padding: 0.4rem 0.55rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* 16px font-size prevents iOS Safari from auto-zooming into the input */
+  .chatbot-input {
+    font-size: 16px !important;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .chatbot-input::placeholder {
+    font-size: 13px;
   }
 }
 
