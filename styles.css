@@ -2704,6 +2704,16 @@ ul {
     gap: 0.5rem;
   }
 
+  /* Mobile: align bullet points and icons to the first line of text */
+  .bullet-dot {
+    margin-top: 3px;
+  }
+
+  .exp-card__award-icon,
+  .exp-card__pub-icon {
+    margin-top: 2px;
+  }
+
   /* Mobile: 2 columns per row, divider in center (50%) with equal distance */
   .exp-card__metrics-grid {
     display: flex;
