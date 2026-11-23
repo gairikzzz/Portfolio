@@ -176,13 +176,62 @@ if (chatbotContainer && chatbotLauncher && chatbotCloseBtn && chatbotForm && cha
     welcomeTimeEl.textContent = getFormattedTime();
   }
 
+  // Mobile background scroll locking helpers to prevent page shifts on input focus
+  let mobileChatScrollY = 0;
+  let isMobileChatLocked = false;
+
+  const lockMobileBodyScroll = () => {
+    if (window.innerWidth > 768 || isMobileChatLocked) return;
+    mobileChatScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+    isMobileChatLocked = true;
+    document.body.classList.add('chatbot-body-locked');
+    document.body.style.top = `-${mobileChatScrollY}px`;
+  };
+
+  const unlockMobileBodyScroll = () => {
+    if (!isMobileChatLocked) return;
+    isMobileChatLocked = false;
+    document.body.classList.remove('chatbot-body-locked');
+    document.body.style.top = '';
+    window.scrollTo({
+      top: mobileChatScrollY,
+      behavior: 'instant'
+    });
+  };
+
+  const enforceStationaryBackground = () => {
+    if (isMobileChatLocked) {
+      if (window.scrollY !== 0 || document.documentElement.scrollTop !== 0) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+    }
+  };
+
+  window.addEventListener('scroll', enforceStationaryBackground, { passive: true });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && isMobileChatLocked) {
+      unlockMobileBodyScroll();
+    }
+  });
+
+  if (typeof navToggle !== 'undefined' && navToggle) {
+    navToggle.addEventListener('click', () => {
+      if (chatbotContainer.classList.contains('is-open')) {
+        chatbotCloseBtn.click();
+      }
+    });
+  }
+
   // Chatbot stays collapsed by default and opens on launcher click
   // (prevents covering case study CTA buttons and cards on load)
 
   // Re-open via floating launcher button
   chatbotLauncher.addEventListener('click', () => {
     chatbotContainer.classList.add('is-open');
-    if (window.innerWidth > 768 && !('ontouchstart' in window)) {
+    if (window.innerWidth <= 768) {
+      lockMobileBodyScroll();
+    } else if (!('ontouchstart' in window)) {
       setTimeout(() => chatbotInput.focus(), 350);
     }
   });
@@ -192,6 +241,7 @@ if (chatbotContainer && chatbotLauncher && chatbotCloseBtn && chatbotForm && cha
     chatbotContainer.classList.remove('is-open');
     chatbotInput.blur();
     document.documentElement.style.removeProperty('--chatbot-keyboard-offset');
+    unlockMobileBodyScroll();
   });
 
   // Scroll to bottom helper
@@ -318,8 +368,17 @@ if (chatbotContainer && chatbotLauncher && chatbotCloseBtn && chatbotForm && cha
     handleSendMessage(chatbotInput.value);
   });
 
-  // Suggestion chips handler
+  // Suggestion chips and navigation link handler
   chatbotMessages.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (link) {
+      chatbotContainer.classList.remove('is-open');
+      chatbotInput.blur();
+      document.documentElement.style.removeProperty('--chatbot-keyboard-offset');
+      unlockMobileBodyScroll();
+      return;
+    }
+
     const chip = e.target.closest('.chat-chip');
     if (chip && chip.dataset.query) {
       handleSendMessage(chip.dataset.query);
@@ -342,15 +401,37 @@ if (chatbotContainer && chatbotLauncher && chatbotCloseBtn && chatbotForm && cha
   };
 
   if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', updateChatbotViewportOffset);
-    window.visualViewport.addEventListener('scroll', updateChatbotViewportOffset);
+    window.visualViewport.addEventListener('resize', () => {
+      enforceStationaryBackground();
+      updateChatbotViewportOffset();
+    });
+    window.visualViewport.addEventListener('scroll', () => {
+      enforceStationaryBackground();
+      updateChatbotViewportOffset();
+    });
   }
 
+  // Prevent background jump on mobile touch and focus
+  chatbotInput.addEventListener('touchstart', lockMobileBodyScroll, { passive: true });
+  chatbotInput.addEventListener('pointerdown', lockMobileBodyScroll, { passive: true });
+
   chatbotInput.addEventListener('focus', () => {
+    lockMobileBodyScroll();
+    enforceStationaryBackground();
     updateChatbotViewportOffset();
-    setTimeout(updateChatbotViewportOffset, 100);
-    setTimeout(updateChatbotViewportOffset, 250);
-    setTimeout(scrollToBottom, 300);
+    setTimeout(() => {
+      enforceStationaryBackground();
+      updateChatbotViewportOffset();
+    }, 50);
+    setTimeout(() => {
+      enforceStationaryBackground();
+      updateChatbotViewportOffset();
+    }, 150);
+    setTimeout(() => {
+      enforceStationaryBackground();
+      updateChatbotViewportOffset();
+      scrollToBottom();
+    }, 300);
   });
 
   chatbotInput.addEventListener('blur', () => {

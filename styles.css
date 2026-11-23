@@ -2120,6 +2120,15 @@ ul {
   transform: scale(0.96);
 }
 
+/* Lock background scrolling on mobile when chatbot is open or active */
+body.chatbot-body-locked {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
 /* Responsive for Mobile */
 @media (max-width: 768px) {
   .chatbot-container {
@@ -2141,6 +2150,12 @@ ul {
     height: 425px;
     max-height: min(425px, calc(100dvh - var(--chatbot-keyboard-offset, 0px) - 5rem));
     border-radius: 12px;
+    overscroll-behavior: contain;
+  }
+
+  .chatbot-messages {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   /* Maintain desktop legibility & shape inside chatbot on mobile */
