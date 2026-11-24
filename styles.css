@@ -3041,6 +3041,8 @@ body.chatbot-body-locked {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
   .exp-metric-divider {
@@ -3054,6 +3056,13 @@ body.chatbot-body-locked {
 
   .exp-metric-val {
     font-size: 1.75rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .exp-metric-desc {
+    text-align: center;
+    width: 100%;
   }
 
   /* Card 1 & Card 2 (6 KPIs) -> 3 rows of 2 columns on mobile */
@@ -3091,8 +3100,8 @@ body.chatbot-body-locked {
 
   /* Mobile vertical divider at 50% between odd and even columns */
   .exp-card__metrics-grid--6kpis .exp-metric-col:nth-child(odd) {
-    padding-left: 0;
-    padding-right: 1.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.85rem;
   }
 
   .exp-card__metrics-grid--6kpis .exp-metric-col:nth-child(odd)::after {
@@ -3112,12 +3121,19 @@ body.chatbot-body-locked {
   }
 
   .exp-card__metrics-grid--6kpis .exp-metric-col:nth-child(even) {
-    padding-left: 1.25rem;
-    padding-right: 0;
+    padding-left: 0.85rem;
+    padding-right: 0.5rem;
   }
 
   .exp-card__metrics-grid--6kpis .exp-metric-val {
     font-size: 1.75rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .exp-card__metrics-grid--6kpis .exp-metric-desc {
+    text-align: center;
+    width: 100%;
   }
 
   /* Hover & active styling on mobile for 6-KPI dividers */
