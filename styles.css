@@ -5632,7 +5632,7 @@ body.chatbot-body-locked {
 
 @media (max-width: 600px) {
   .footer__character-wrap {
-    height: clamp(360px, 98vw, 395px);
+    height: clamp(288px, 78vw, 316px);
     opacity: 1;
     right: -10px;
     bottom: 0;
@@ -5641,7 +5641,7 @@ body.chatbot-body-locked {
 
 @media (max-width: 480px) {
   .footer__character-wrap {
-    height: clamp(360px, 98vw, 395px);
+    height: clamp(288px, 78vw, 316px);
   }
 }
 
