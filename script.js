@@ -1542,10 +1542,12 @@ function initFooterSocialButtons() {
   if (!socialBtns.length) return;
 
   socialBtns.forEach(btn => {
-    // When clicked/tapped, immediately blur to drop focus and clear hover cache
+    // When clicked/tapped on desktop, blur to drop focus and clear hover cache
     btn.addEventListener('click', () => {
-      btn.blur();
-      btn.classList.add('is-clicked');
+      if (window.innerWidth > 768) {
+        btn.blur();
+        btn.classList.add('is-clicked');
+      }
     });
 
     btn.addEventListener('mouseleave', () => {
@@ -1558,10 +1560,12 @@ function initFooterSocialButtons() {
     });
 
     btn.addEventListener('touchend', () => {
-      setTimeout(() => {
-        btn.classList.remove('is-clicked');
-        btn.blur();
-      }, 250);
+      if (window.innerWidth > 768) {
+        setTimeout(() => {
+          btn.classList.remove('is-clicked');
+          btn.blur();
+        }, 250);
+      }
     }, { passive: true });
   });
 
@@ -1836,6 +1840,133 @@ function initProjectKpiCounters() {
   });
 }
 
+// ===== Mobile Hover Effect System (1s Timer & Dismiss on Scroll) =====
+function initMobileHoverSystem() {
+  const HOVER_SELECTORS = [
+    '.exp-card',
+    '.work-card',
+    '.skills-bubble',
+    '.achieve-card',
+    '.achieve-step-card',
+    '.cert-box',
+    '.cert-badge-slot',
+    '.testi-card',
+    '.timeline-card',
+    '.leisure-tile',
+    '.about-polaroid',
+    '.pt-case-card',
+    '.pt-flow-step',
+    '.pt-comparison-col',
+    '.pt-tag',
+    '.footer__social-btn'
+  ].join(', ');
+
+  let activeEl = null;
+  let hoverTimer = null;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isTouchScroll = false;
+
+  const isMobile = () => window.innerWidth <= 768;
+
+  function clearActiveHover() {
+    if (hoverTimer) {
+      clearTimeout(hoverTimer);
+      hoverTimer = null;
+    }
+    if (activeEl) {
+      activeEl.classList.remove('mobile-hover');
+      if (document.activeElement === activeEl && activeEl.blur) {
+        activeEl.blur();
+      }
+      activeEl = null;
+    }
+    document.querySelectorAll('.mobile-hover').forEach(el => {
+      el.classList.remove('mobile-hover');
+      if (document.activeElement === el && el.blur) el.blur();
+    });
+    document.querySelectorAll('.skills-marquee-track').forEach(track => {
+      track.style.animationPlayState = '';
+    });
+  }
+
+  // Detect tap vs scroll gestures
+  document.addEventListener('touchstart', (e) => {
+    if (!isMobile()) return;
+    if (e.touches && e.touches.length > 0) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      isTouchScroll = false;
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!isMobile()) return;
+    if (e.touches && e.touches.length > 0) {
+      const dx = Math.abs(e.touches[0].clientX - touchStartX);
+      const dy = Math.abs(e.touches[0].clientY - touchStartY);
+      if (dx > 8 || dy > 8) {
+        isTouchScroll = true;
+        clearActiveHover();
+      }
+    }
+  }, { passive: true });
+
+  let lastScrollY = window.scrollY;
+
+  // On scroll: immediately clear any active hover effect if page scrolled
+  window.addEventListener('scroll', () => {
+    if (!isMobile()) return;
+    if (Math.abs(window.scrollY - lastScrollY) > 2) {
+      lastScrollY = window.scrollY;
+      clearActiveHover();
+    }
+  }, { passive: true });
+
+  // Clear if viewport resized to desktop
+  window.addEventListener('resize', () => {
+    if (!isMobile()) {
+      clearActiveHover();
+    }
+  }, { passive: true });
+
+  // On click/tap
+  document.addEventListener('click', (e) => {
+    if (!isMobile()) return;
+    if (isTouchScroll) {
+      isTouchScroll = false;
+      return;
+    }
+
+    const target = e.target.closest(HOVER_SELECTORS);
+
+    // If tap outside any hoverable element, clear active hover
+    if (!target) {
+      clearActiveHover();
+      return;
+    }
+
+    // Clear previous hover
+    clearActiveHover();
+
+    // Activate hover on tapped element
+    activeEl = target;
+    activeEl.classList.add('mobile-hover');
+    lastScrollY = window.scrollY;
+
+    // If it's a skills bubble, pause its marquee track
+    if (activeEl.classList.contains('skills-bubble')) {
+      const track = activeEl.closest('.skills-marquee-track');
+      if (track) track.style.animationPlayState = 'paused';
+    }
+
+    // 1-second timer: automatically disappears after 1000ms if no scroll
+    hoverTimer = setTimeout(() => {
+      clearActiveHover();
+    }, 1000);
+  }, { capture: true, passive: true });
+}
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
@@ -1845,6 +1976,7 @@ if (document.readyState === 'loading') {
     initFooterSocialButtons();
     initCaseStudiesStack();
     initProjectKpiCounters();
+    initMobileHoverSystem();
   });
 } else {
   initContactCTA();
@@ -1853,5 +1985,6 @@ if (document.readyState === 'loading') {
   initFooterSocialButtons();
   initCaseStudiesStack();
   initProjectKpiCounters();
+  initMobileHoverSystem();
 }
 
