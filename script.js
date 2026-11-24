@@ -23,43 +23,47 @@ if (header) {
   document.body.appendChild(overlay);
 }
 
-// ===== Mobile Menu Toggle =====
-navToggle.addEventListener('click', () => {
-  navToggle.classList.toggle('active');
-  navMenu.classList.toggle('open');
-  overlay.classList.toggle('active');
-  if (header) header.classList.toggle('nav-open');
-  document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
-});
-
-// Close menu when clicking overlay
-overlay.addEventListener('click', () => {
+// Helper to close mobile menu
+const closeNavMenu = () => {
+  if (!navMenu || !navMenu.classList.contains('open')) return;
   navToggle.classList.remove('active');
   navMenu.classList.remove('open');
   overlay.classList.remove('active');
   if (header) header.classList.remove('nav-open');
-  document.body.style.overflow = '';
+};
+
+// ===== Mobile Menu Toggle =====
+navToggle.addEventListener('click', () => {
+  const isOpen = navMenu.classList.toggle('open');
+  navToggle.classList.toggle('active', isOpen);
+  overlay.classList.toggle('active', isOpen);
+  if (header) header.classList.toggle('nav-open', isOpen);
 });
+
+// Close menu when clicking overlay
+overlay.addEventListener('click', closeNavMenu);
 
 // Close menu when clicking a nav link
 document.querySelectorAll('.nav__link').forEach(link => {
-  link.addEventListener('click', () => {
-    navToggle.classList.remove('active');
-    navMenu.classList.remove('open');
-    overlay.classList.remove('active');
-    if (header) header.classList.remove('nav-open');
-    document.body.style.overflow = '';
-  });
+  link.addEventListener('click', closeNavMenu);
 });
 
-// ===== Header shadow on scroll =====
+// Close menu on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNavMenu();
+});
+
+// ===== Header shadow on scroll & dismiss mobile menu on scroll =====
 window.addEventListener('scroll', () => {
+  if (navMenu && navMenu.classList.contains('open')) {
+    closeNavMenu();
+  }
   if (window.scrollY > 10) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
-});
+}, { passive: true });
 
 // ===== Typewriter Effect =====
 const typewriterEl = document.getElementById('typewriter-text');
