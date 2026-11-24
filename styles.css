@@ -1271,8 +1271,8 @@ ul {
   .about-polaroid {
     height: 100% !important;
     aspect-ratio: auto !important;
-    padding: 7px 7px 0 7px !important;
-    border-radius: 8px !important;
+    padding: 4px 4px 0 4px !important;
+    border-radius: 6px !important;
     display: flex !important;
     flex-direction: column !important;
     box-sizing: border-box !important;
@@ -1282,6 +1282,7 @@ ul {
     flex: 1 1 0% !important;
     min-height: 0 !important;
     height: 100% !important;
+    border-radius: 3px !important;
   }
   .polaroid-photo-img {
     width: 100% !important;
@@ -1290,16 +1291,16 @@ ul {
     object-position: 60% 18% !important;
   }
   .polaroid-bottom-margin {
-    height: 24px !important;
-    gap: 4px !important;
+    height: 18px !important;
+    gap: 3.5px !important;
     flex-shrink: 0 !important;
   }
   .polaroid-location-icon {
-    width: 9px !important;
-    height: 9px !important;
+    width: 8px !important;
+    height: 8px !important;
   }
   .polaroid-caption {
-    font-size: 12.5px !important;
+    font-size: 9.5px !important;
   }
   .about-narrative-col {
     display: contents !important;
@@ -1314,12 +1315,13 @@ ul {
   }
   .about-headline {
     margin: 0 0 0.45rem 0 !important;
-    font-size: 1.12rem !important;
+    font-size: clamp(0.95rem, 3.4vw, 1.08rem) !important;
     line-height: 1.22 !important;
     letter-spacing: -0.35px !important;
+    white-space: nowrap !important;
   }
   .about-headline-line {
-    display: block !important;
+    display: inline !important;
   }
   .about-story {
     margin-bottom: 0 !important;
@@ -1392,7 +1394,8 @@ ul {
     column-gap: 0.95rem !important;
   }
   .about-headline {
-    font-size: 1.05rem !important;
+    font-size: clamp(0.88rem, 3.5vw, 0.98rem) !important;
+    white-space: nowrap !important;
   }
   .about-story p {
     font-size: 0.72rem !important;
