@@ -6089,11 +6089,11 @@ body.chatbot-body-locked {
   }
   .footer__bottom-bar::before {
     right: auto;
-    width: clamp(195px, 52vw, 220px);
+    width: clamp(135px, 38vw, 150px);
   }
   .footer__copyright {
     max-width: none;
-    font-size: 0.74rem;
+    font-size: 0.60rem;
     white-space: nowrap;
     line-height: 1.45;
     color: #777777;
@@ -6110,15 +6110,24 @@ body.chatbot-body-locked {
   }
   .footer__bottom-bar::before {
     right: auto;
-    width: clamp(195px, 52vw, 220px);
+    width: clamp(130px, 38vw, 145px);
   }
   .footer__copyright {
-    font-size: 0.74rem;
+    font-size: 0.60rem;
     white-space: nowrap;
   }
   .footer__copyright-rights {
     display: inline;
     margin-top: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer__bottom-bar::before {
+    width: 130px;
+  }
+  .footer__copyright {
+    font-size: 0.56rem;
   }
 }
 
