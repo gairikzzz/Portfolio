@@ -6008,18 +6008,18 @@ body.chatbot-body-locked {
   }
   .footer__bottom-bar::before {
     right: auto;
-    width: 165px;
+    width: clamp(195px, 52vw, 220px);
   }
   .footer__copyright {
     max-width: none;
     font-size: 0.74rem;
-    white-space: normal;
+    white-space: nowrap;
     line-height: 1.45;
     color: #777777;
   }
   .footer__copyright-rights {
-    display: block;
-    margin-top: 0.15rem;
+    display: inline;
+    margin-top: 0;
   }
 }
 
@@ -6029,10 +6029,15 @@ body.chatbot-body-locked {
   }
   .footer__bottom-bar::before {
     right: auto;
-    width: 165px;
+    width: clamp(195px, 52vw, 220px);
   }
   .footer__copyright {
     font-size: 0.74rem;
+    white-space: nowrap;
+  }
+  .footer__copyright-rights {
+    display: inline;
+    margin-top: 0;
   }
 }
 
