@@ -795,6 +795,10 @@ ul {
   margin: -5px 0 0.65rem 0;
 }
 
+.about-headline-line {
+  display: inline;
+}
+
 .about-story {
   display: flex;
   flex-direction: column;
@@ -1249,20 +1253,86 @@ ul {
     transform: none !important;
   }
   .about-editorial-intro {
-    grid-template-columns: 1fr;
-    gap: 2.2rem;
+    display: grid !important;
+    grid-template-columns: 124px 1fr !important;
+    column-gap: 1.15rem !important;
+    row-gap: 2.2rem !important;
+    align-items: stretch !important;
   }
   .about-portrait-col {
-    max-width: 290px;
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    height: 100% !important;
   }
   .about-polaroid {
-    height: auto;
-    aspect-ratio: 3.5 / 4.4;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    padding: 7px 7px 0 7px !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+    min-height: 0 !important;
+  }
+  .polaroid-aperture {
+    flex: 1 1 0% !important;
+    min-height: 0 !important;
+    height: 100% !important;
+  }
+  .polaroid-photo-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 60% 18% !important;
+  }
+  .polaroid-bottom-margin {
+    height: 24px !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+  }
+  .polaroid-location-icon {
+    width: 9px !important;
+    height: 9px !important;
+  }
+  .polaroid-caption {
+    font-size: 12.5px !important;
+  }
+  .about-narrative-col {
+    display: contents !important;
+  }
+  .about-intro-text {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+  }
+  .about-headline {
+    margin: 0 0 0.45rem 0 !important;
+    font-size: 1.12rem !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.35px !important;
+  }
+  .about-headline-line {
+    display: block !important;
+  }
+  .about-story {
+    margin-bottom: 0 !important;
+  }
+  .about-story p {
+    font-size: 0.76rem !important;
+    line-height: 1.5 !important;
+    color: #a3a3a3 !important;
+    margin: 0 !important;
   }
   .about-timeline {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
     padding-left: 30px;
   }
   .timeline-marker {
@@ -1316,6 +1386,16 @@ ul {
   .leisure-tiles-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.55rem;
+  }
+  .about-editorial-intro {
+    grid-template-columns: 112px 1fr !important;
+    column-gap: 0.95rem !important;
+  }
+  .about-headline {
+    font-size: 1.05rem !important;
+  }
+  .about-story p {
+    font-size: 0.72rem !important;
   }
 }
 
