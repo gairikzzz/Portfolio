@@ -2978,6 +2978,7 @@ body.chatbot-body-locked {
     padding: 0 2px;
     margin-left: 3px;
     vertical-align: -1px;
+    top: 2.5px;
     transform: none;
     color: #FA8C16;
     position: relative;
