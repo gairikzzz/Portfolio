@@ -1711,12 +1711,6 @@ ul {
     object-fit: contain;
     object-position: right center;
     display: block;
-    -webkit-mask-image: radial-gradient(ellipse 85% 95% at 85% 50%, black 0%, black 65%, rgba(0, 0, 0, 0.4) 82%, transparent 100%);
-    mask-image: radial-gradient(ellipse 85% 95% at 85% 50%, black 0%, black 65%, rgba(0, 0, 0, 0.4) 82%, transparent 100%);
-  }
-
-  .hero__video-wash {
-    display: none;
   }
 
   /* Transparent overlay: no dark tint, no background blur — same behaviour as chatbot */
