@@ -1585,10 +1585,10 @@ ul {
   }
 
   .hero__title {
-    font-size: clamp(1.25rem, 5.3vw, 1.95rem);
-    white-space: normal;
-    word-break: break-word;
-    letter-spacing: -1.2px;
+    font-size: clamp(1rem, 3.8vw, 1.35rem);
+    white-space: nowrap;
+    word-break: normal;
+    letter-spacing: -0.5px;
     line-height: 1.1;
     max-width: 100%;
   }
@@ -1708,13 +1708,13 @@ ul {
     right: auto;
     bottom: auto;
     top: auto;
-    opacity: 0.38;
+    opacity: 0.42;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     pointer-events: none;
     z-index: 1;
-    transform: translateX(12%);
+    transform: translateX(16%);
   }
 
   .hero__video {
@@ -1725,6 +1725,37 @@ ul {
     object-fit: contain;
     object-position: right center;
     display: block;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .hero__video-wash {
+    background:
+      /* 1. Minimal top blanket on mobile so badges in upper right remain sharp and visible without whitewashing */
+      linear-gradient(
+        to bottom,
+        #F2EFF0 0%,
+        rgba(242, 239, 240, 0.2) 3%,
+        transparent 6%
+      ),
+      /* 2. Soft radial side wash behind text on the left */
+      radial-gradient(
+        ellipse 65% 85% at 0% 55%,
+        #F2EFF0 0%,
+        #F2EFF0 18%,
+        rgba(242, 239, 240, 0.55) 35%,
+        rgba(242, 239, 240, 0.15) 50%,
+        transparent 68%
+      ),
+      /* 3. Ambient wash keeping badges area 100% crisp */
+      radial-gradient(
+        ellipse 85% 85% at 70% 62%,
+        transparent 0%,
+        transparent 55%,
+        rgba(242, 239, 240, 0.12) 70%,
+        rgba(242, 239, 240, 0.35) 85%,
+        #F2EFF0 96%
+      ) !important;
   }
 
   /* Transparent overlay: no dark tint, no background blur — same behaviour as chatbot */
