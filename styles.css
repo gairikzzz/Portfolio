@@ -1252,6 +1252,9 @@ ul {
     opacity: 1 !important;
     transform: none !important;
   }
+  .about-section-header {
+    margin-bottom: 2rem !important;
+  }
   .about-editorial-intro {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
@@ -1395,6 +1398,9 @@ ul {
   .leisure-tiles-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.55rem;
+  }
+  .about-section-header {
+    margin-bottom: 1.8rem !important;
   }
   .about-editorial-intro {
     grid-template-columns: 1fr 1fr !important;
