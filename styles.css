@@ -2927,7 +2927,7 @@ body.chatbot-body-locked {
 
 @media (max-width: 768px) {
   .experience-section {
-    padding: 2.2rem 0 3.5rem 0;
+    padding: 3.5rem 0 3.5rem 0;
   }
   .experience-section-header {
     margin-bottom: 2.2rem;
@@ -4667,7 +4667,7 @@ body.chatbot-body-locked {
 
 @media (max-width: 768px) {
   .skills-section {
-    padding: 0 0 3.5rem 0;
+    padding: 3.5rem 0 3.5rem 0;
   }
   .skills-section-header {
     margin-bottom: 2.25rem;
@@ -5623,6 +5623,12 @@ body.chatbot-body-locked {
   .testi-cards-track {
     --testi-gap: 1.15rem;
     padding-bottom: var(--testi-gap);
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements-section {
+    padding: 3.5rem 0 3.75rem 0;
   }
 }
 
