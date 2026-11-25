@@ -1715,7 +1715,8 @@ ul {
     justify-content: flex-end;
     pointer-events: none;
     z-index: 1;
-    transform: translateX(16%);
+    transform: translateX(0%) scale(0.86);
+    transform-origin: right bottom;
   }
 
   .hero__video {
