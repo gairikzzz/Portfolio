@@ -1254,16 +1254,19 @@ ul {
   }
   .about-editorial-intro {
     display: grid !important;
-    grid-template-columns: 124px 1fr !important;
-    column-gap: 1.15rem !important;
+    grid-template-columns: 1fr 1fr !important;
+    column-gap: 0.85rem !important;
     row-gap: 2.2rem !important;
     align-items: stretch !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .about-portrait-col {
     grid-column: 1 !important;
     grid-row: 1 !important;
     max-width: 100% !important;
     width: 100% !important;
+    min-width: 0 !important;
     margin: 0 !important;
     min-height: 0 !important;
     height: 100% !important;
@@ -1291,16 +1294,16 @@ ul {
     object-position: 60% 18% !important;
   }
   .polaroid-bottom-margin {
-    height: 18px !important;
+    height: 20px !important;
     gap: 3.5px !important;
     flex-shrink: 0 !important;
   }
   .polaroid-location-icon {
-    width: 8px !important;
-    height: 8px !important;
+    width: 9px !important;
+    height: 9px !important;
   }
   .polaroid-caption {
-    font-size: 9.5px !important;
+    font-size: 10px !important;
   }
   .about-narrative-col {
     display: contents !important;
@@ -1308,20 +1311,24 @@ ul {
   .about-intro-text {
     grid-column: 2 !important;
     grid-row: 1 !important;
+    min-width: 0 !important;
+    width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     height: 100% !important;
+    box-sizing: border-box !important;
   }
   .about-headline {
     margin: 0 0 0.45rem 0 !important;
-    font-size: clamp(0.95rem, 3.4vw, 1.08rem) !important;
-    line-height: 1.22 !important;
+    font-size: clamp(0.92rem, 3.6vw, 1.12rem) !important;
+    line-height: 1.25 !important;
     letter-spacing: -0.35px !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
+    word-break: normal !important;
   }
   .about-headline-line {
-    display: inline !important;
+    display: block !important;
   }
   .about-story {
     margin-bottom: 0 !important;
@@ -1390,12 +1397,12 @@ ul {
     gap: 0.55rem;
   }
   .about-editorial-intro {
-    grid-template-columns: 112px 1fr !important;
-    column-gap: 0.95rem !important;
+    grid-template-columns: 1fr 1fr !important;
+    column-gap: 0.75rem !important;
   }
   .about-headline {
-    font-size: clamp(0.88rem, 3.5vw, 0.98rem) !important;
-    white-space: nowrap !important;
+    font-size: clamp(0.9rem, 3.5vw, 1.05rem) !important;
+    white-space: normal !important;
   }
   .about-story p {
     font-size: 0.78rem !important;
