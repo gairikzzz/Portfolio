@@ -1318,12 +1318,13 @@ ul {
     width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
+    justify-content: center !important;
+    gap: 0.55rem !important;
     height: 100% !important;
     box-sizing: border-box !important;
   }
   .about-headline {
-    margin: 0 0 0.45rem 0 !important;
+    margin: 0 !important;
     font-size: clamp(1.22rem, 4.6vw, 1.6rem) !important;
     line-height: 1.25 !important;
     letter-spacing: -0.35px !important;
@@ -1334,7 +1335,7 @@ ul {
     display: block !important;
   }
   .about-story {
-    margin-bottom: 0 !important;
+    margin: 0 !important;
   }
   .about-story p {
     font-size: 0.78rem !important;
