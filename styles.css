@@ -1253,7 +1253,7 @@ ul {
     transform: none !important;
   }
   .about-section-header {
-    margin-bottom: 2rem !important;
+    margin-bottom: 2.8rem !important;
   }
   .about-editorial-intro {
     display: grid !important;
@@ -1401,7 +1401,7 @@ ul {
     gap: 0.55rem;
   }
   .about-section-header {
-    margin-bottom: 1.8rem !important;
+    margin-bottom: 2.52rem !important;
   }
   .about-editorial-intro {
     grid-template-columns: 1fr 1fr !important;
@@ -2962,7 +2962,7 @@ body.chatbot-body-locked {
     padding: 3.5rem 0 3.5rem 0;
   }
   .experience-section-header {
-    margin-bottom: 2.2rem;
+    margin-bottom: 3.08rem;
   }
   .experience-timeline {
     padding-left: 28px;
@@ -4702,7 +4702,7 @@ body.chatbot-body-locked {
     padding: 3.5rem 0 3.5rem 0;
   }
   .skills-section-header {
-    margin-bottom: 2.25rem;
+    margin-bottom: 3.15rem;
   }
   .skills-showcase {
     padding: 1rem 0 0;
@@ -5662,6 +5662,9 @@ body.chatbot-body-locked {
   .achievements-section {
     padding: 3.5rem 0 3.75rem 0;
   }
+  .achievements-section-header {
+    margin-bottom: 3.15rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -5669,7 +5672,7 @@ body.chatbot-body-locked {
     padding: 3.5rem 0 3.75rem 0;
   }
   .achievements-section-header {
-    margin-bottom: 2.25rem;
+    margin-bottom: 3.15rem;
   }
   .achievements-grid {
     grid-template-columns: 1fr;
